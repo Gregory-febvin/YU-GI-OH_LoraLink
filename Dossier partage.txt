@@ -1,0 +1,16 @@
+sudo apt install samba
+sudo nano /etc/samba/smb.conf
+
+[admin]
+path=/var/www/html
+browsable=yes
+writeable=yes
+create mask=0777
+directory mask=0777
+
+
+sudo smbpasswd -a pi
+
+sudo service smbd start
+
+net use Z: \\192.168.1.23\admin /user:pi PASSWORD /persistent:yes

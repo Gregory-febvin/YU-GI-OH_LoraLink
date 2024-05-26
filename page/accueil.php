@@ -38,6 +38,7 @@
       get_tournament_non_incrit($mysqli);
     ?>
   </div>
+  <a href="deck_creation.php">Deck creation</a>
     <script src="../js/accueil.js" ></script>
   </body>
 </html>
