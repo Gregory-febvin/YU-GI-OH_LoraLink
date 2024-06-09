@@ -8,8 +8,20 @@ $databaseName = 'yugioh';
 
 $mysqli = new mysqli($databaseHost, $databaseUsername, $databasePassword, $databaseName);
 
+
+$databaseHostGame = '127.0.0.1';
+$databaseUsernameGame = 'yugioh';
+$databasePasswordGame = 'yugioh';
+$databaseNameGame = 'test_yu';
+
+$DatabaseGame = new mysqli($databaseHostGame, $databaseUsernameGame, $databasePasswordGame, $databaseNameGame);
+
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
+}
+
+if ($DatabaseGame->connect_error) {
+    die("Connection failed: " . $DatabaseGame->connect_error);
 }
 
 function sanitizeSQL($query) {
@@ -58,9 +70,9 @@ if (isset($_POST['inscription'])) {
 
         // Sanitize SQL query
         $insert_query = sanitizeSQL("INSERT INTO `user` (`surname`, `firstname`, `password`, `id_konami`) VALUES ('$username', '$firstname', '$password', '$idkonamie')");
-        
+        $insert_query_game = sanitizeSQL("INSERT INTO `user`(`username`, `password`) VALUES ($username,$password])");
         // Insert new user into database
-        if ($mysqli->query($insert_query) === TRUE) {
+        if ($mysqli->query($insert_query) === TRUE && $mysqli->query($insert_query_game) === TRUE) {
             echo "Registration successful. You can now login.";
         } else {
             echo "Error: " . $mysqli->error;

@@ -18,16 +18,11 @@ if (isset($_SESSION['id']) && isset($_POST['deckName'])) {
     $deckName = $_POST['deckName'];
     
     // Insérer le deck dans la table "deck"
-    $insertDeckQuery = "INSERT INTO `deck`(`Name`) VALUES ('$deckName')";
+    $insertDeckQuery = "INSERT INTO `deck`(`Name`,`id_user`) VALUES ('$deckName, " . $_SESSION['id'] . "')";
     $mysqli->query($insertDeckQuery);
 
     // Récupérer l'ID du deck nouvellement inséré
     $deckId = $mysqli->insert_id;
-
-    // Insérer l'ID du deck pour l'utilisateur dans la table "user"
-    $insertUserDeckQuery = "UPDATE `user` SET `id_deck`='$deckId' WHERE `id_user`='" . $_SESSION['id'] . "'";
-    $mysqli->query($insertUserDeckQuery);
-
     echo $deckId; // Renvoyer l'ID du deck
 }
 ?>
