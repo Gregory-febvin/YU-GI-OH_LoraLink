@@ -13,6 +13,7 @@
 .left,
 .right {
     width: fit-content;
+    padding: 0% 2% 0% 2%;
 }
 
 .content-table {
@@ -88,7 +89,46 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
+    text-align: center; /* Align text center */
+    font-size: 1.5em; /* Augmenter la taille de la police */
 }
+
+#inscriptionModal p {
+    margin-bottom: 20px; /* Add space below the paragraph */
+}
+
+#deckSelectionContainer {
+    margin-bottom: 20px; /* Add space below the deck selection */
+}
+
+#deckSelect {
+    padding: 10px; /* Add padding to select element */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    width: 60%; /* Set width */
+    margin-right: 10px; /* Add margin */
+    font-size: 0.7em; /* Adjust font size */
+}
+
+
+#confirmInscription {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px; /* Adjust padding */
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 4px;
+    width: fit-content; /* Ajuster la largeur */
+}
+
+#confirmInscription:hover {
+    background-color: #45a049;
+}
+
 
 .close {
     color: #aaa;

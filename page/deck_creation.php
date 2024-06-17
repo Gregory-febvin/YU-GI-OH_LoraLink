@@ -1,5 +1,4 @@
 <?php 
-  session_start();
   include '../php/user_info.php';
 
   if (!isset($_SESSION['id'])) {
@@ -141,5 +140,6 @@
             <div id="error_message" style="color: red; display: none; margin-top: 10px;"></div>
         </form>
     </div>
+    <button id="createTestDeck">Créer un deck test</button>
 </body>
 </html>

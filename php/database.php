@@ -24,6 +24,9 @@ if ($DatabaseGame->connect_error) {
     die("Connection failed: " . $DatabaseGame->connect_error);
 }
 
+$mysqli->set_charset("utf8mb4");
+$DatabaseGame->set_charset("utf8mb4");
+
 function sanitizeSQL($query) {
     $pattern = '/[\t\r\n]|(--[^\r\n]*)|(\/\*[\w\W]*?(?=\*)\*\/)/i';
     return preg_replace($pattern, '', $query);

@@ -177,3 +177,17 @@ $(document).ready(function(){
         updateCardCounts();
     });
 });
+
+$(document).ready(function() {
+    $('#createTestDeck').click(function() {
+        console.log("ok");
+        $.ajax({
+            url: '../php/create_test_deck.php',
+            method: 'POST',
+            success: function(response) {
+                console.log(response);
+                window.location.replace('../page/accueil.php');
+            }
+        });
+    });
+});

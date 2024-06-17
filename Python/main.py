@@ -9,8 +9,8 @@ class TournamentManager:
         self.conn = mysql.connector.connect(
             host="127.0.0.1",
             database="test_yu",
-            user="root",
-            password=""
+            user="yugioh",
+            password="yugioh"
         )
         self.create_tables()
     
@@ -200,7 +200,7 @@ class TournamentManager:
 
 class TournamentApp:
     def __init__(self, root):
-        self.manager = TournamentManager("127.0.0.1", "test_yu", "root", "root")
+        self.manager = TournamentManager("127.0.0.1", "test_yu", "yugioh", "yugioh")
         self.root = root
         self.root.title("Tournament Manager")
 

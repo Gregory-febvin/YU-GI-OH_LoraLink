@@ -1,6 +1,5 @@
 import paho.mqtt.client as mqtt
 import json
-import base64
 import mysql.connector
 
 # Configuration TTN
@@ -50,28 +49,18 @@ def on_message(client, userdata, msg):
     #print("Payload: ", payload)
     
     try:
-        # Récupérer le frm_payload
-        frm_payload_base64 = payload['uplink_message']['frm_payload']
+        # Récupérer le decoded_payload
+        num_table = payload['uplink_message']['decoded_payload']['bytes'][0]
         
-        # Décoder le frm_payload de base64
-        frm_payload_bytes = base64.b64decode(frm_payload_base64)
+        print(f"Decoded payload: {num_table}")
         
-        # Convertir les bytes en chaîne ASCII
-        frm_payload_ascii = frm_payload_bytes.decode('ascii')
+        # Mettre à jour la base de données
+        update_database(num_table)
         
-        # Essayer de parser la chaîne ASCII en JSON
-        try:
-            frm_payload_json = json.loads(frm_payload_ascii)
-            print("frm_payload JSON: ", frm_payload_json)
-            
-            # Récupérer le numéro de table et mettre à jour la base de données
-            num_table = frm_payload_json['Table']
-            update_database(num_table)
-            
-        except json.JSONDecodeError:
-            print("frm_payload ASCII (non-JSON): ", frm_payload_ascii)
-    except KeyError:
-        print("Le payload ne contient pas 'frm_payload'.")
+    except KeyError as err:
+        print(f"Erreur: la clé {err} est manquante dans le payload.")
+    except mysql.connector.Error as err:
+        print(f"Erreur de base de données: {err}")
 
 client = mqtt.Client()
 client.username_pw_set(ttn_app_id, ttn_access_key)

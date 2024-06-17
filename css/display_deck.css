@@ -1,0 +1,119 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    height: 10%;
+    width: 100%;
+}
+
+.header_navbar {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.BoxDeckInfo {
+    background-color: whitesmoke;
+    line-height: 15px;
+    color: #58595B;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    border: 1px solid #A7A9AC;
+    border-radius: 10px;
+    box-shadow: 3px 3px 7px #CCC;
+    margin: 1%;
+    padding: 1%;
+    text-align: left;
+    background: #FFF;
+    width: 30%;
+    float: left;
+    position: relative;
+}
+
+.m-left {
+    float: left;
+}
+
+.m-right {
+    float: right;
+}
+
+thead {
+    background-color: #D0E3FA;
+}
+
+tbody {
+    background-color: whitesmoke;
+}
+
+.IMG {
+    height: auto;
+    width: 80%;
+}
+
+.card {
+    display: none;
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    height: 70%;
+}
+
+.link {
+    color: #222222;
+}
+
+.TypeCarte {
+    background-color: #D0E3FA;
+}
+
+.TableDeck {
+    width: 35%;
+}
+
+th, td {
+    border: 0.1rem solid #222222;
+}
+
+p {
+    margin-top: 0.2%;
+    margin-bottom: 0.2%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.content-table {
+    margin-top: 20px;
+}
+
+.card-image-container {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20%;
+    height: auto;
+    z-index: 10;
+    background-color: white;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 10px; /* Space between the title and the table */
+}
+
